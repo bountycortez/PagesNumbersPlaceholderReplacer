@@ -1,4 +1,4 @@
-JsOsaDAS1.001.00bplist00ÑVscript_-a
+JsOsaDAS1.001.00bplist00ÑVscript_-b
 (() => {
 //function run(argv){
 	'use strict';
@@ -40,7 +40,7 @@ JsOsaDAS1.001.00bplist00ÑVscript_-a
 	});
 	alerttext = 'WELCOME TO\n PagesNumbersPlaceholderReplacer\n(PNPR '+version+')\n\nARE YOU READY?\nPLEASE CHECK THE FOLLOWING:';
 	var txt1='Numbers document (e.g. PNPR.numbers) with first row as header containing values according to Pages placeholder tags\nmust be open now\nand datarows (optional after filtering)\nmust be seleted now.';
-	var txt2='Pages document made from template with Placeholders (e.g. PNPR.template)\nmust be open now';
+	var txt2='Pages document made from template with Placeholders (e.g. PNPR.template)\nmust be open now.';
 	var txt3='If more than one row is selected, additional Pages documents based on template of open document will be created!';
 	alertmessage = '\n1. '+txt1+'\n\n2. '+txt2+'\n\n3. '+txt3+'\n';
 	app.displayAlert(alerttext, {
@@ -346,4 +346,4 @@ JsOsaDAS1.001.00bplist00ÑVscript_-a
 		
 })()
 
-                              -w jscr  úÞÞ­
+                              -xjscr  úÞÞ­
