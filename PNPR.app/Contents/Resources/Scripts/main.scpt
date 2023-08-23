@@ -1,4 +1,4 @@
-JsOsaDAS1.001.00bplist00ÑVscript_-¡
+JsOsaDAS1.001.00bplist00ÑVscript_.Û
 (() => {
 //function run(argv){
 	'use strict';
@@ -72,6 +72,7 @@ JsOsaDAS1.001.00bplist00ÑVscript_-¡
 	try {
 		sysevents.processes['Pages'].frontmost = true;
 	} catch(err) {
+		app.activate();
 		const e = new Error('\nPages not running, run aborted!', { cause: err }); e.errorNumber = -600; 
 		throw e;
 	}
@@ -79,6 +80,7 @@ JsOsaDAS1.001.00bplist00ÑVscript_-¡
 	try {
 		sysevents.processes['Numbers'].frontmost = true;
 	} catch(err) {
+		app.activate();
 		const e = new Error('\nPages not running, run aborted!', { cause: err }); e.errorNumber = -600; 
 		throw e;
 	}
@@ -90,6 +92,7 @@ JsOsaDAS1.001.00bplist00ÑVscript_-¡
 		var numbersfile= numbersdoc.file();
 		console.log('Numbers Doc File: ' + numbersfile);		
 	} catch(err){
+		app.activate();
 		const e = new Error('\nCannot determine Numbers document filename, run aborted!', { cause: err }); e.errorNumber = -38; 
 		throw e;
 	}
@@ -101,6 +104,7 @@ JsOsaDAS1.001.00bplist00ÑVscript_-¡
 		var pagesdocname=pagesdoc.name();
 		console.log('Pages Doc Name: ' + pagesdocname);
 	} catch(err){
+		app.activate();
 		const e = new Error('\nCannot determine Pages document filename, run aborted!', { cause: err }); e.errorNumber = -38; 
 		throw e;
 	}
@@ -111,6 +115,7 @@ JsOsaDAS1.001.00bplist00ÑVscript_-¡
 		console.log('Pages Document Template Name: ' + pagestemplatename);
 
 	} catch(err){
+		app.activate();
 		const e = new Error('\nCannot determine Pages document template, run aborted!', { cause: err }); e.errorNumber = -38; 
 		throw e;
 	}
@@ -119,6 +124,7 @@ JsOsaDAS1.001.00bplist00ÑVscript_-¡
 		var template=pages.templates[pagestemplatename];
 		console.log('Pages Template Name: ' + template.name());
 	} catch(err){
+		app.activate();
 		const e = new Error('\nCannot determine Pages template <'+ pagestemplatename+'>, run aborted!', { cause: err }); e.errorNumber = -38; 
 		throw e;
 	}
@@ -134,6 +140,7 @@ JsOsaDAS1.001.00bplist00ÑVscript_-¡
 		var placeholdertaglength= placeholdertags.length;
 		console.log('Pages Placeholder Tags ('+placeholdertaglength+'): '+placeholdertags);	
 	} catch(err) {
+		app.activate();
 		const e = new Error('\nCannot determine Pages document placeholder count, run aborted!', { cause: err }); e.errorNumber = -38; 
 		throw e;
 	}
@@ -150,12 +157,14 @@ JsOsaDAS1.001.00bplist00ÑVscript_-¡
 	console.log('Numbers Header Row Count: <' + headerrowcount + '>');
 	
 	if(headerrowcount!=1){
+		app.activate();
 		const e = new Error('\nNumbers Sheet <' + sheetname +'> Table <' + tablename + '> header row count must be 1!\n\nRun aborted!', { cause: null }); e.errorNumber = -192; 
 		throw e;
 	}
 	
 	//table can be filtered
 	//if(!table.filtered()){
+	// 	app.activate();
 	//	const e = new Error('\nNumbers Sheet <' + sheetname +'> Table <' + tablename + '> not filtered!\n\nRun aborted!'); e.errorNumber = -192; 
 	//	throw e;
 	//}
@@ -173,6 +182,7 @@ JsOsaDAS1.001.00bplist00ÑVscript_-¡
 		
 	} catch(err) {
 	    //console.log('NO SELECTION!');
+		app.activate();
 		const e = new Error('\nGetting Numbers Selection failed!\n\nRun aborted!', { cause: err }); e.errorNumber = -192; 
 		throw e;
 	}
@@ -213,11 +223,13 @@ JsOsaDAS1.001.00bplist00ÑVscript_-¡
 			}
 		}		
 	} catch(err) {
+		app.activate();
 		const e = new Error('\nCannot determine Numbers document header, run aborted!', { cause: err }); e.errorNumber = -192; 
 		throw e;
 	}
 		
 	if(selectioncount==0){
+		app.activate();
 		const e = new Error('\nNo rows selected, run aborted!', { cause: null }); e.errorNumber = -192; 
 		throw e;
 	}
@@ -232,6 +244,7 @@ JsOsaDAS1.001.00bplist00ÑVscript_-¡
 	//selection length must be equal to headertags length!
 	//check here!!!!!!!
 	if(headertags.length!=selectionlength){
+		app.activate();
 		const e = new Error('\nNot enough cells selected (must be '+selectionlength+' per selected row), run aborted!', { cause: null }); e.errorNumber = -192; 
 		throw e;
 	}
@@ -259,6 +272,7 @@ JsOsaDAS1.001.00bplist00ÑVscript_-¡
 			//selection count must be equal to headertags length!
 			//check here!!!!!!!
 			if(headertags.length!=selectionlength){
+				app.activate();
 				const e = new Error('\nNot enough cells selected (must be '+selectionlength+' in selected row '+i+'), run aborted!', { cause: null }); e.errorNumber = -192; 
 				throw e;
 			}
@@ -314,6 +328,7 @@ JsOsaDAS1.001.00bplist00ÑVscript_-¡
 			}
 
 		} catch(err) {
+			app.activate();
 			const e = new Error('\nCannot determine Numbers document datarow #' + i +', run aborted!', { cause: err }); e.errorNumber = -192; 
 			throw e;
 		}
@@ -324,6 +339,8 @@ JsOsaDAS1.001.00bplist00ÑVscript_-¡
 	//================================================================================
 	//================================================================================
 	//end of run
+	app.activate();
+
     console.log('+++ END OF CODE +++');
 	//app.say("Finished! Check if result is as expected!", {
  	//    using: voice,
@@ -342,8 +359,10 @@ JsOsaDAS1.001.00bplist00ÑVscript_-¡
 					withIcon: 'stop'
 	});
     console.log('+++ BYE! +++');
+	pages.activate();
+
 	return 0;
 		
 })()
 
-                              -· jscr  úÞÞ­
+                              .ñ jscr  úÞÞ­
