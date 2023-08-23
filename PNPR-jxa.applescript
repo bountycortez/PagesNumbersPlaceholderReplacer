@@ -4,7 +4,7 @@
 	'use strict';
 	
 	//version
-	var version="V1.0 20211114 by BF"
+	var version="V1.1 20230823 by BF"
  
 	//startup
 	var app = Application.currentApplication();
@@ -15,10 +15,10 @@
 
 	//================================================================================
 	//variables
-	var voice = 'Alex';
-	var voicespeed = 200;
-	var voicepitch = 30;
-	var voicemodulation = 100;
+	// var voice = 'Alex';
+	// var voicespeed = 200;
+	// var voicepitch = 30;
+	// var voicemodulation = 100;
 	var alerttext;
 	var alertmessage;
 	var appname = app.name;
@@ -32,16 +32,16 @@
 	//================================================================================
 	//bring app to front
 	app.activate();
-	app.say("Please check!", {
- 	    using: voice,
-    	speakingRate: voicespeed,
-    	pitch: voicepitch,
-    	modulation: voicemodulation
-	});
+	// app.say("Please check!", {
+ 	//    using: voice,
+    //	speakingRate: voicespeed,
+    //	pitch: voicepitch,
+    //	modulation: voicemodulation
+	//});
 	alerttext = 'WELCOME TO\n PagesNumbersPlaceholderReplacer\n(PNPR '+version+')\n\nARE YOU READY?\nPLEASE CHECK THE FOLLOWING:';
-	var txt1='Numbers document (e.g. PNPR.numbers) with first row as header containing values according to Pages placeholder tags\nmust be open now\nand datarows (optional after filtering)\nmust be seleted now.';
-	var txt2='Pages document made from template with Placeholders (e.g. PNPR.template)\nmust be open now.';
-	var txt3='If more than one row is selected, additional Pages documents based on template of open document will be created!';
+	var txt1='Pages document made from template with Placeholders (e.g. PNPR.template)\nmust be open now.';
+	var txt2='Numbers document (e.g. PNPR.numbers) with first row as header containing values according to Pages placeholder tags\nmust be open now\nand datarows (optional after filtering)\nmust be seleted now.';
+	var txt3='If more than one row is selected in Numbers, then additional Pages documents based on template of open document will be created!';
 	alertmessage = '\n1. '+txt1+'\n\n2. '+txt2+'\n\n3. '+txt3+'\n';
 	app.displayAlert(alerttext, {
 					message: alertmessage,
@@ -50,12 +50,12 @@
     				defaultButton: 'Continue',
     				cancelButton: 'Dont Continue'
 	});
-	app.say("Let's get ready to rumble!", {
- 	    using: voice,
-    	speakingRate: voicespeed,
-    	pitch: voicepitch,
-    	modulation: voicemodulation
-	});
+	//app.say("Let's get ready to rumble!", {
+ 	//  using: voice,
+    //	speakingRate: voicespeed,
+    //	pitch: voicepitch,
+    //	modulation: voicemodulation
+	//});
 
 	
 	//================================================================================
@@ -325,12 +325,12 @@
 	//================================================================================
 	//end of run
     console.log('+++ END OF CODE +++');
-	app.say("Finished! Check if result is as expected!", {
- 	    using: voice,
-    	speakingRate: voicespeed,
-    	pitch: voicepitch,
-    	modulation: voicemodulation
-	});
+	//app.say("Finished! Check if result is as expected!", {
+ 	//    using: voice,
+    //	speakingRate: voicespeed,
+    //	pitch: voicepitch,
+    //	modulation: voicemodulation
+	//});
 	alerttext = '\n\nFINISHED!\nCreated '+ selectioncount+' Pages documents\n\nCheck if everything is as expected!\n\n(This message becomes closed after 5 seconds.)';
 	alertmessage = '----------';
 	app.displayDialog(alerttext, {
